@@ -11,16 +11,16 @@ function getUserId (ctx) {
     }
   }
 
-  throw new Error('Not authorized')
+  throw new AuthError()
 }
 
-// class AuthError extends Error {
-//   constructor () {
-//     super('Not authorized')
-//   }
-// }
+class AuthError extends Error {
+  constructor () {
+    super('Not authorized')
+  }
+}
 
 module.exports = {
-  getUserId
-  // AuthError
+  getUserId,
+  AuthError
 }
