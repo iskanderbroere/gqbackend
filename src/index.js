@@ -17,6 +17,9 @@ const server = new GraphQLServer({
 })
 
 const options = {
+  cors: {
+    origin: ["http://localhost:3000", "http://bonas.nl"]
+  },
   playground: "/playground"
 }
 

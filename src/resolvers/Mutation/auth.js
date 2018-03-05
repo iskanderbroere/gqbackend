@@ -17,7 +17,7 @@ const auth = {
   async login (parent, { email, password }, ctx, info) {
     const user = await ctx.db.query.user({ where: { email } })
     if (!user) {
-      throw new Error(`No such user found for email: ${email}`)
+      throw new Error(`No user found for email: ${email}`)
     }
 
     const valid = await bcrypt.compare(password, user.password)
