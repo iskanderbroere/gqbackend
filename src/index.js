@@ -18,7 +18,7 @@ const server = new GraphQLServer({
 
 const options = {
   cors: {
-    origin: ["http://localhost:3000", "http://bonas.nl"]
+    origin: process.env.NODE_ENV === 'development' ? "http://localhost:3000" : false
   },
   playground: "/playground"
 }
