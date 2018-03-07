@@ -158,8 +158,8 @@ input PostUpdateManyWithoutAuthorInput {
   connect: [PostWhereUniqueInput!]
   disconnect: [PostWhereUniqueInput!]
   delete: [PostWhereUniqueInput!]
-  update: [PostUpdateWithWhereUniqueWithoutAuthorInput!]
-  upsert: [PostUpsertWithWhereUniqueWithoutAuthorInput!]
+  update: [PostUpdateWithoutAuthorInput!]
+  upsert: [PostUpsertWithoutAuthorInput!]
 }
 
 input PostUpdateWithoutAuthorDataInput {
@@ -168,12 +168,12 @@ input PostUpdateWithoutAuthorDataInput {
   text: String
 }
 
-input PostUpdateWithWhereUniqueWithoutAuthorInput {
+input PostUpdateWithoutAuthorInput {
   where: PostWhereUniqueInput!
   data: PostUpdateWithoutAuthorDataInput!
 }
 
-input PostUpsertWithWhereUniqueWithoutAuthorInput {
+input PostUpsertWithoutAuthorInput {
   where: PostWhereUniqueInput!
   update: PostUpdateWithoutAuthorDataInput!
   create: PostCreateWithoutAuthorInput!
@@ -342,9 +342,9 @@ input UserUpdateInput {
 input UserUpdateOneWithoutPostsInput {
   create: UserCreateWithoutPostsInput
   connect: UserWhereUniqueInput
-  disconnect: Boolean
-  delete: Boolean
-  update: UserUpdateWithoutPostsDataInput
+  disconnect: UserWhereUniqueInput
+  delete: UserWhereUniqueInput
+  update: UserUpdateWithoutPostsInput
   upsert: UserUpsertWithoutPostsInput
 }
 
@@ -354,7 +354,13 @@ input UserUpdateWithoutPostsDataInput {
   name: String
 }
 
+input UserUpdateWithoutPostsInput {
+  where: UserWhereUniqueInput!
+  data: UserUpdateWithoutPostsDataInput!
+}
+
 input UserUpsertWithoutPostsInput {
+  where: UserWhereUniqueInput!
   update: UserUpdateWithoutPostsDataInput!
   create: UserCreateWithoutPostsInput!
 }
