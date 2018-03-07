@@ -1,4 +1,4 @@
-type Post {
+type Post @cacheControl(maxAge: 300) {
   id: ID! @unique
   createdAt: DateTime!
   updatedAt: DateTime!

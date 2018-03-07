@@ -19,7 +19,20 @@ const server = new GraphQLServer({
 })
 
 const engine = new Engine({
-  engineConfig: { apiKey: process.env.APOLLO_ENGINE_KEY },
+  engineConfig: { 
+    apiKey: process.env.APOLLO_ENGINE_KEY,
+    "stores": [
+      {
+        "name": "publicResponseCache",
+        "inMemory": {
+          "cacheSize": 10485760
+        }
+      }
+    ],
+    "queryCache": {
+      "publicFullQueryStore": "publicResponseCache"
+    }
+  },
   endpoint: '/',
   // graphqlPort: parseInt(process.env.PORT, 10) || 4000
   graphqlPort: 4000

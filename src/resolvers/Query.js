@@ -14,7 +14,6 @@ const Query = {
         id
       }
     }
-
     return ctx.db.query.posts({ where }, info)
   },
 
